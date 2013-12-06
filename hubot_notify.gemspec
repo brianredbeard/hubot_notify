@@ -5,30 +5,30 @@
 
 Gem::Specification.new do |s|
   s.name = "hubot_notify"
-  s.version = "0.0.3"
+  s.version = "0.0.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Greg Sutcliffe"]
-  s.date = "2013-02-18"
-  s.description = "IRC Plugin for Foreman"
-  s.email = "greg.sutcliffe@gmail.com"
+  s.authors = ["Greg Sutcliffe", "Brian Harrington"]
+  s.date = "2013-12-06"
+  s.description = "This plugin for Foreman uses the native httpd-post-say plugin provided by hubot."
+  s.email = "redbeard@redhat.com"
   s.extra_rdoc_files = [
+    "LICENSE",
     "README.md"
   ]
   s.files = [
     "Gemfile",
     "Gemfile.lock",
-    "README.md",
     "Rakefile",
     "app/controllers/hubot_notify/unattended_controller_extensions.rb",
     "lib/hubot_notify.rb",
     "lib/hubot_notify/engine.rb"
   ]
-  s.homepage = "http://github.com/GregSutcliffe/hubot_notify"
+  s.homepage = "http://github.com/brianredbeard/hubot_notify"
   s.licenses = ["GPL-3"]
-  s.require_paths = ["lib"]
+  s.require_paths = ["lib", "app"]
   s.rubygems_version = "1.8.24"
-  s.summary = "Plugin engine for Foreman"
+  s.summary = "A plugin to send Foreman notifications to hubot"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
@@ -45,3 +45,4 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<jeweler>, [">= 0"])
   end
 end
+

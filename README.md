@@ -1,13 +1,13 @@
 # hubot\_notify
 
 A simple plugin to send and HTTP message (via POST) to a webservice (hubot)
-for reposting to IRC
+for reposting to XMPP
 
 # Installation:
 
 Add to bundler.d/Gemfile.local.rb as:
 
-    gem 'hubot\_notify', :git => 'https://github.com/GregSutcliffe/hubot\_notify.git'
+    gem 'hubot\_notify', :git => 'https://github.com/brianredbeard/hubot\_notify.git'
 
 then update & restart Foreman:
 
@@ -21,7 +21,7 @@ Add to your Foreman `config/settings.yaml`:
 ```yaml
 :hubot:
   :enabled: true
-  :address: 'http://ircbot:8080/hubot/irc'
+  :address: 'http://hubot:8080/hubot/say'
 ```
 
 You will also need a listening Hubot (see below for a sample listener script)
@@ -35,44 +35,23 @@ Follow https://github.com/github/hubot/wiki/Deploying-Hubot-onto-UNIX as far as
 
    ./bin/hubot -c /tmp/hubot
 
-to create a deployed version. Then add the irc plugin to the dependencies:
+to create a deployed version. Then add the http-post-plugin to the dependencies:
 
     cd /tmp/hubot
-    vi package.json
+    vi hubot-scripts.json
 
-    "dependencies": {
-      "hubot-irc": ">= 0.0.1",
-      "hubot": ">=2.4.6",
-      "hubot-scripts": ">= 2.4.1",
-      "optparse": "1.0.3"
-    },
+    ["karma.coffee", "http-post-say.coffee"]
 
-    npm install
-
-Edit _irc.coffee_ to set the channel name and the message prefix, and add it to scripts:
-
-    room = '##myroom'
-    message = "mynick: #{msg}"
-
-    cp irc.coffee /tmp/hubot/scripts/
-
-Start hubot:
-
-    export HUBOT_IRC_SERVER="chat.freenode.net"
-    export HUBOT_IRC_ROOMS="##myroom"
-    export HUBOT_IRC_NICK="mybot"
-    cd /tmp/hubot && bin/hubot -a irc
+    cd /tmp/hubot && bin/hubot 
 
 You probably want to either background this with nohup or run it in a screen
 
 # TODO
 
-* Add settings to the HTTP POST so they don't have to be hardcoded in _irc.coffee_
-* Support other bots?
-
 # Copyright
 
-Copyright (c) 2012-2013 Greg Sutcliffe
+Copyright (c) 2012-2013 Greg Sutcliffe <gsutclif@redhat.com>
+Modifications Copyright (c) 2013 Brian Harrington <redbeard@redhat.com>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

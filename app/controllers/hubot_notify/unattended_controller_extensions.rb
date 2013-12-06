@@ -21,13 +21,12 @@ module HubotNotify
         end
 
         post_data = {
-          'user'    => (Setting[:irc_user] || 'ircuser'),
-          'room'    => (Setting[:irc_room] || '#ircroom'),
+          'room'    => (SETTINGS[:hubot][:notify_room] || '#ircroom'),
           'message' => "#{@host.name}: #{message}"
         }
 
-        if Setting[:irc_enabled]
-          address = Setting[:irc_address] || 'http://ircbot/hubot'
+        if SETTINGS[:hubot][:notify_enabled]
+          address = SETTINGS[:hubot][:notify_address] || 'http://hubot:8080/hubot/say'
           logger.debug "Sending message to #{address}"
           begin
             Net::HTTP.post_form(URI(address), post_data)
