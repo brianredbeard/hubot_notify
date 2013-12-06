@@ -20,8 +20,9 @@ Add to your Foreman `config/settings.yaml`:
 
 ```yaml
 :hubot:
-  :enabled: true
-  :address: 'http://hubot:8080/hubot/say'
+  :notify_enabled: true
+  :notify_address: 'http://hubot:8080/hubot/say'
+  :notify_room: 'operations@conference.xmpp.example.com'
 ```
 
 You will also need a listening Hubot (see below for a sample listener script)
