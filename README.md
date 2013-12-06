@@ -51,13 +51,13 @@ You probably want to either background this with nohup or run it in a screen
 
 # Copyright
 
-Copyright (c) 2012-2013 Greg Sutcliffe <gsutclif@redhat.com>
-Modifications Copyright (c) 2013 Brian Harrington <redbeard@redhat.com>
+Copyright (c) 2012-2013 Greg Sutcliffe <gsutclif@redhat.com>  
+Modifications Copyright (c) 2013 Brian Harrington <redbeard@redhat.com>  
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+(at your option) any later version.  
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
